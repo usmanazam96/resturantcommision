@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant.commission.calculator.exceptions;
+package com.vd.restaurant.commission.calculator.exceptions;
 
 public class MenuItemNotFoundException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant.commission.calculator.services;
+package com.vd.restaurant.commission.calculator.services;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,10 +18,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.vd.restaurant.restaurant.commission.calculator.entities.MenuItem;
-import com.vd.restaurant.restaurant.commission.calculator.exceptions.InvalidStockException;
-import com.vd.restaurant.restaurant.commission.calculator.exceptions.MenuItemNotFoundException;
-import com.vd.restaurant.restaurant.commission.calculator.repositories.MenuItemRepository;
+import com.vd.restaurant.commission.calculator.entities.MenuItem;
+import com.vd.restaurant.commission.calculator.exceptions.InvalidStockException;
+import com.vd.restaurant.commission.calculator.exceptions.MenuItemNotFoundException;
+import com.vd.restaurant.commission.calculator.repositories.MenuItemRepository;
 @SpringBootTest
 public class MenuItemServiceTest {
 

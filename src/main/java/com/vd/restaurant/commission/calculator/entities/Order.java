@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant.commission.calculator.entities;
+package com.vd.restaurant.commission.calculator.entities;
 
 
 import java.util.ArrayList;

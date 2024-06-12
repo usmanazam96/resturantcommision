@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant.commission.calculator;
+package com.vd.restaurant.commission.calculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

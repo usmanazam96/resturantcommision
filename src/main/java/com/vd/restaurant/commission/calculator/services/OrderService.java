@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant.commission.calculator.services;
+package com.vd.restaurant.commission.calculator.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vd.restaurant.restaurant.commission.calculator.entities.Order;
-import com.vd.restaurant.restaurant.commission.calculator.entities.OrderItem;
-import com.vd.restaurant.restaurant.commission.calculator.exceptions.OrderNotFoundException;
-import com.vd.restaurant.restaurant.commission.calculator.repositories.OrderRepository;
+import com.vd.restaurant.commission.calculator.entities.Order;
+import com.vd.restaurant.commission.calculator.entities.OrderItem;
+import com.vd.restaurant.commission.calculator.exceptions.OrderNotFoundException;
+import com.vd.restaurant.commission.calculator.repositories.OrderRepository;
 
 import jakarta.transaction.Transactional;
 

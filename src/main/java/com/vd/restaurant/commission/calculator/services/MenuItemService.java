@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant.commission.calculator.services;
+package com.vd.restaurant.commission.calculator.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vd.restaurant.restaurant.commission.calculator.entities.MenuItem;
-import com.vd.restaurant.restaurant.commission.calculator.exceptions.InvalidStockException;
-import com.vd.restaurant.restaurant.commission.calculator.exceptions.MenuItemNotFoundException;
-import com.vd.restaurant.restaurant.commission.calculator.repositories.MenuItemRepository;
+import com.vd.restaurant.commission.calculator.entities.MenuItem;
+import com.vd.restaurant.commission.calculator.exceptions.InvalidStockException;
+import com.vd.restaurant.commission.calculator.exceptions.MenuItemNotFoundException;
+import com.vd.restaurant.commission.calculator.repositories.MenuItemRepository;
 
 @Service
 public class MenuItemService {
