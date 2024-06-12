@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant_commission_calculator;
+package com.vd.restaurant.restaurant.commission.calculator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

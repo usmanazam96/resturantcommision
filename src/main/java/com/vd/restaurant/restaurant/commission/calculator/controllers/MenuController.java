@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant_commission_calculator.controllers;
+package com.vd.restaurant.restaurant.commission.calculator.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vd.restaurant.restaurant_commission_calculator.entities.MenuItem;
-import com.vd.restaurant.restaurant_commission_calculator.exceptions.MenuItemNotFoundException;
-import com.vd.restaurant.restaurant_commission_calculator.services.MenuItemService;
+import com.vd.restaurant.restaurant.commission.calculator.entities.MenuItem;
+import com.vd.restaurant.restaurant.commission.calculator.services.MenuItemService;
 
 @RestController
 @RequestMapping("/menu")
@@ -46,13 +45,13 @@ public class MenuController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMenuItem(@PathVariable Long id) {
-        try {
-            menuItemService.deleteMenuItem(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (MenuItemNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteMenuItem(@PathVariable Long id) {
+		if (menuItemService.existsById(id)) {
+			menuItemService.deleteMenuItem(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+	}
 }

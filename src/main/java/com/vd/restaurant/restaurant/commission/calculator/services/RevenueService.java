@@ -1,19 +1,19 @@
-package com.vd.restaurant.restaurant_commission_calculator.services;
+package com.vd.restaurant.restaurant.commission.calculator.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vd.restaurant.restaurant_commission_calculator.entities.Order;
-import com.vd.restaurant.restaurant_commission_calculator.repositories.OrderRepository;
+import com.vd.restaurant.restaurant.commission.calculator.entities.Order;
+import com.vd.restaurant.restaurant.commission.calculator.repositories.OrderRepository;
 
 @Service
 public class RevenueService {
 	
 	@Autowired
     private OrderRepository orderRepository;
-
+	
     public double calculateTotalRevenue() {
         List<Order> orders = orderRepository.findAll();
         double totalRevenue = 0.0;
@@ -27,7 +27,7 @@ public class RevenueService {
 
     public double calculateCommissionedRevenue() {
         double totalRevenue = calculateTotalRevenue();
-        return totalRevenue * 0.12; // 12% commission
+        return totalRevenue * 0.12; 
     }
 
 }

@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant_commission_calculator.controllers;
+package com.vd.restaurant.restaurant.commission.calculator.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vd.restaurant.restaurant_commission_calculator.entities.Order;
-import com.vd.restaurant.restaurant_commission_calculator.entities.OrderItem;
-import com.vd.restaurant.restaurant_commission_calculator.services.OrderService;
+import com.vd.restaurant.restaurant.commission.calculator.entities.Order;
+import com.vd.restaurant.restaurant.commission.calculator.entities.OrderItem;
+import com.vd.restaurant.restaurant.commission.calculator.services.OrderService;
 
 @RestController
 @RequestMapping("/orders")

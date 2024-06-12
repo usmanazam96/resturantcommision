@@ -1,22 +1,23 @@
-package com.vd.restaurant.restaurant_commission_calculator.entities;
+package com.vd.restaurant.restaurant.commission.calculator.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity
 @Data
-public class OrderItem {
-
-    @Id
+public class MenuItem {
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private String description;
+    private double price;
+    private int stock;
 
-    @ManyToOne
-    private MenuItem menuItem;
-    private int quantity;
 
 }
+

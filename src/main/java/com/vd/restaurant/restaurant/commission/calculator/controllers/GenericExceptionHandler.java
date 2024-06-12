@@ -1,17 +1,23 @@
-package com.vd.restaurant.restaurant_commission_calculator.controllers;
+package com.vd.restaurant.restaurant.commission.calculator.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.vd.restaurant.restaurant_commission_calculator.exceptions.MenuItemNotFoundException;
-import com.vd.restaurant.restaurant_commission_calculator.exceptions.OrderNotFoundException;
+import com.vd.restaurant.restaurant.commission.calculator.exceptions.InvalidStockException;
+import com.vd.restaurant.restaurant.commission.calculator.exceptions.MenuItemNotFoundException;
+import com.vd.restaurant.restaurant.commission.calculator.exceptions.OrderNotFoundException;
 
 @ControllerAdvice
-public class ExceptionController {
+public class GenericExceptionHandler {
 
-    @ExceptionHandler(OrderNotFoundException.class)
+	@ExceptionHandler(InvalidStockException.class)
+    public ResponseEntity<String> handleInvalidStateException(InvalidStockException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+	
+	@ExceptionHandler(OrderNotFoundException.class)
     public ResponseEntity<String> handleOrderNotFoundException(OrderNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }

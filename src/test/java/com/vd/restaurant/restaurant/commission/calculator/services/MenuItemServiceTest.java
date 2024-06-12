@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant_commission_calculator.services;
+package com.vd.restaurant.restaurant.commission.calculator.services;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,11 +16,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.vd.restaurant.restaurant_commission_calculator.entities.MenuItem;
-import com.vd.restaurant.restaurant_commission_calculator.exceptions.MenuItemNotFoundException;
-import com.vd.restaurant.restaurant_commission_calculator.repositories.MenuItemRepository;
-
+import com.vd.restaurant.restaurant.commission.calculator.entities.MenuItem;
+import com.vd.restaurant.restaurant.commission.calculator.exceptions.InvalidStockException;
+import com.vd.restaurant.restaurant.commission.calculator.exceptions.MenuItemNotFoundException;
+import com.vd.restaurant.restaurant.commission.calculator.repositories.MenuItemRepository;
+@SpringBootTest
 public class MenuItemServiceTest {
 
     @InjectMocks
@@ -75,5 +77,18 @@ public class MenuItemServiceTest {
         when(menuItemRepository.existsById(1L)).thenReturn(false);
 
         assertThrows(MenuItemNotFoundException.class, () -> menuItemService.deleteMenuItem(1L));
+    }
+
+    @Test
+    public void testUpdateMenuItemStock() {
+        MenuItem menuItem = new MenuItem();
+        menuItem.setStock(10);
+        when(menuItemRepository.findById(1L)).thenReturn(Optional.of(menuItem));
+        when(menuItemRepository.save(menuItem)).thenReturn(menuItem);
+
+        MenuItem result = menuItemService.updateMenuItemStock(1L, -5);
+        assertEquals(5, result.getStock());
+
+        assertThrows(InvalidStockException.class, () -> menuItemService.updateMenuItemStock(1L, -6));
     }
 }

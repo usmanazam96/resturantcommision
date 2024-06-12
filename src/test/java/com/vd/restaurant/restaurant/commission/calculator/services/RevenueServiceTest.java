@@ -1,4 +1,4 @@
-package com.vd.restaurant.restaurant_commission_calculator.services;
+package com.vd.restaurant.restaurant.commission.calculator.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doReturn;
@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.vd.restaurant.restaurant_commission_calculator.entities.MenuItem;
-import com.vd.restaurant.restaurant_commission_calculator.entities.Order;
-import com.vd.restaurant.restaurant_commission_calculator.entities.OrderItem;
-import com.vd.restaurant.restaurant_commission_calculator.repositories.OrderRepository;
+import com.vd.restaurant.restaurant.commission.calculator.entities.MenuItem;
+import com.vd.restaurant.restaurant.commission.calculator.entities.Order;
+import com.vd.restaurant.restaurant.commission.calculator.entities.OrderItem;
+import com.vd.restaurant.restaurant.commission.calculator.repositories.OrderRepository;
 
+@SpringBootTest
 public class RevenueServiceTest {
 
     @InjectMocks
@@ -34,13 +36,13 @@ public class RevenueServiceTest {
     @Test
     public void testCalculateTotalRevenue() {
         MenuItem menuItem1 = new MenuItem();
-        menuItem1.setPrice(10.0);
+        menuItem1.setPrice(10.5);
         OrderItem orderItem1 = new OrderItem();
         orderItem1.setMenuItem(menuItem1);
         orderItem1.setQuantity(2);
 
         MenuItem menuItem2 = new MenuItem();
-        menuItem2.setPrice(5.0);
+        menuItem2.setPrice(8.0);
         OrderItem orderItem2 = new OrderItem();
         orderItem2.setMenuItem(menuItem2);
         orderItem2.setQuantity(3);
@@ -51,7 +53,7 @@ public class RevenueServiceTest {
         when(orderRepository.findAll()).thenReturn(Arrays.asList(order));
 
         double result = revenueService.calculateTotalRevenue();
-        assertEquals(35.0, result);
+        assertEquals(45.0, result);
     }
 
     @Test
